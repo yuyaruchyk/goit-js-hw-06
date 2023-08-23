@@ -13,12 +13,32 @@ const images = [
   },
 ];
 
-const allImages = document.querySelector('#images');
-const gallery = images
-  .map((image) => 
-    `<li class="gallery-item">
-    <img src="${image.url}" alt="${image.alt}" class="gallery-image">
-  </li>`)
-.join('');
+const list = document.querySelector('.gallery');
+const liArray = images.map(({ url, alt }) => {
+  return `
+    <li>
+      <img 
+        src="${url}"
+        alt="${alt}"
+      />
+    </li>
+  `;
 
-allImages.insertAdjacentHTML('beforeend', gallery);
+  
+});
+
+
+
+
+
+const markup = liArray.join('');
+
+list.insertAdjacentHTML("afterbegin", markup);
+
+
+
+
+
+
+
+
